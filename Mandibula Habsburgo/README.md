@@ -1,1 +1,1 @@
-#Efecto de la Consanguinidad en la Mandibula Habsburgo
+Efecto de la Consanguinidad en la Mandibula Habsburgo
