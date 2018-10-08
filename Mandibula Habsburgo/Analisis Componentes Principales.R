@@ -10,8 +10,8 @@ library(readr)
 library(factoextra)
 
 # Abro los documentos separados por ; 
-md <- read.csv("C:/Users/Rembukai/Desktop/Habsburg Jaw/md.csv", sep=";")
-mp <- read.csv("C:/Users/Rembukai/Desktop/Habsburg Jaw/mp.csv", sep=";")
+md <- read.csv("~/md.csv", sep=";")
+mp <- read.csv("~/mp.csv", sep=";")
 
 #Preparo los datos
 Fped<-md[,12]
