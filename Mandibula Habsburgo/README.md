@@ -6,13 +6,13 @@
 2.[Instalar RStudio](https://www.rstudio.com/products/rstudio/download)
 
 ## Introducción a la Práctica. II. Practicando con R
-Vamos a realizar unas practicas de R utilizando para ello el paquete `swirl`
+Vamos a realizar unas prácticas de R utilizando para ello el paquete `swirl`
 
 `install.packages("swirl")`
 
 `library(swirl)`
 
-`swirl`
+`swirl()`
 
 Cuando queramos salir de `swirl`escribimos `bye()`
 
