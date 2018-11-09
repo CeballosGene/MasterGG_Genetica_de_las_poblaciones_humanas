@@ -1,7 +1,38 @@
 library(plyr)
 library(matrixStats)
 library(readr)
+########################################################################################################
+CEU<-read.table("/CEU.array.hom",header=TRUE)
+ASW<-read.table("/ASW.array.hom",header=TRUE)
+GIH<-read.table("/GIH.array.hom",header=TRUE)
+#######################################################################################################
+plot_chr_c<-function(f,descn,chr){
+  names(f)<-tolower(names(f))
+  a<-f[f$chr==chr,]
+  a<-a[!is.na(a$chr),]
+  iids_num<-as.character(unique(a$iid))
+  nsamps<-length(iids_num)
+  xlimi<-c(0,max(a$pos2,na.rm=T))
+  plot(NULL,xlim=xlimi,ylim=c(0,nsamps),main=descn,xlab="Physical Position",ylab="Subject")
+  for (id_no in 1:nsamps) {
+    plot_dat<-a[which(a$iid==iids_num[id_no]),]
+    color="black"
+    if(id_no%%2==0) color="red"
+    if(id_no==44)color="blue"
+    if(id_no==43)color="pink"
+    if (length(plot_dat$iid) > 0) {
+      for (roh_n in 1:length(plot_dat$iid)) {
+        x<-c(plot_dat[roh_n,"pos1"],plot_dat[roh_n,"pos2"])
+        y<-  c(id_no,id_no)
+        lines(x,y,lw=3,lend=2,col=color)
+      }
+    }
+  }
+  return(a)
+}
 
+windows()
+plot_chr_c(ASW,"GIH",1)
 #########################################################################################################
 ################# 1.  PROCESSING THE HOM FILES FROM PLINK
 rm(list=ls())
